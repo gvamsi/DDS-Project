@@ -13,14 +13,14 @@ object SpatialQuery extends App{
 	
 	try {
           var rect = new Array[String](4)
-          rect = x.split(",")
+          rect = queryRectangle.split(",")
           var rect_x1 = rect(0).trim.toDouble
           var rect_y1 = rect(1).trim.toDouble
           var rect_x2 = rect(2).trim.toDouble
           var rect_y2 = rect(3).trim.toDouble
             
           var point = new Array[String](2)
-          point= y.split(",")          
+          point= pointString.split(",")          
           var point_x=point(0).trim.toDouble
           var point_y=point(1).trim.toDouble
           
@@ -50,7 +50,6 @@ object SpatialQuery extends App{
         catch {
             case _: Throwable => return false
         }
-		
 	))
 
     val resultDf = spark.sql("select * from point where ST_Contains('"+arg2+"',point._c0)")
@@ -72,14 +71,14 @@ object SpatialQuery extends App{
 	
 	try {
           var rect = new Array[String](4)
-          rect = x.split(",")
+          rect = queryRectangle.split(",")
           var rect_x1 = rect(0).trim.toDouble
           var rect_y1 = rect(1).trim.toDouble
           var rect_x2 = rect(2).trim.toDouble
           var rect_y2 = rect(3).trim.toDouble
             
           var point = new Array[String](2)
-          point= y.split(",")          
+          point= pointString.split(",")          
           var point_x=point(0).trim.toDouble
           var point_y=point(1).trim.toDouble
           
@@ -110,6 +109,10 @@ object SpatialQuery extends App{
             case _: Throwable => return false
         }
 	
+	
+	
+	
+	
 	))
 
     val resultDf = spark.sql("select * from rectangle,point where ST_Contains(rectangle._c0,point._c0)")
@@ -129,21 +132,21 @@ object SpatialQuery extends App{
 	
 	try {
           var point1 = new Array[String](2)
-          point1 = x.split(",")
+          point1 = pointString1.split(",")
 
           var point1_x= point1(0).trim.toDouble
           var point1_y= point1(1).trim.toDouble
         
           var point2 = new Array[String](2)
-          point2 = y.split(",")
+          point2 = pointString2.split(",")
 
           var point2_x=point2(0).trim.toDouble
           var point2_y=point2(1).trim.toDouble
           
-          var maxDistance = z
+         
           var pointDistance = Math.sqrt(Math.pow((point1_x - point2_x), 2) + Math.pow((point1_y - point2_y), 2))
           
-          if(pointDistance <= maxDistance)
+          if(pointDistance <= distance)
             return true 
           else
             return false
@@ -172,28 +175,30 @@ object SpatialQuery extends App{
     spark.udf.register("ST_Within",(pointString1:String, pointString2:String, distance:Double)=>(
 	try {
           var point1 = new Array[String](2)
-          point1 = x.split(",")
+          point1 = pointString1.split(",")
 
           var point1_x= point1(0).trim.toDouble
           var point1_y= point1(1).trim.toDouble
         
           var point2 = new Array[String](2)
-          point2 = y.split(",")
+          point2 = pointString2.split(",")
 
           var point2_x=point2(0).trim.toDouble
           var point2_y=point2(1).trim.toDouble
           
-          var maxDistance = z
+        
           var pointDistance = Math.sqrt(Math.pow((point1_x - point2_x), 2) + Math.pow((point1_y - point2_y), 2))
           
-          if(pointDistance <= maxDistance)
+          if(pointDistance <= distance)
             return true 
           else
             return false
         }
         catch {
             case _: Throwable => return false
-        }	
+        }
+		
+	
 	))
     val resultDf = spark.sql("select * from point1 p1, point2 p2 where ST_Within(p1._c0, p2._c0, "+arg3+")")
     resultDf.show()
