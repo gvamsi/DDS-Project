@@ -1,17 +1,18 @@
 object HelloWorld {
     def ST_Contains(x:String, y:String): Boolean = {
         try {
-          var point = new Array[String](2)
-          point= x.split(",")          
-          var point_x=point(0).trim.toDouble
-          var point_y=point(1).trim.toDouble
-          
           var rect = new Array[String](4)
-          rect = y.split(",")
+          rect = x.split(",")
           var rect_x1 = rect(0).trim.toDouble
           var rect_y1 = rect(1).trim.toDouble
           var rect_x2 = rect(2).trim.toDouble
           var rect_y2 = rect(3).trim.toDouble
+            
+          var point = new Array[String](2)
+          point= y.split(",")          
+          var point_x=point(0).trim.toDouble
+          var point_y=point(1).trim.toDouble
+          
 
           var lower_x =0.0
           var higher_x =0.0
@@ -74,7 +75,7 @@ object HelloWorld {
          print("border 2= " + ST_Within("1,1", "3,1",2))
          print("border 2.1= " + ST_Within("1,1", "3,1",2.1))*/
 
-         print("border " + ST_Contains("4,5","1,    1, 4,4  "))
+         print("border " + ST_Contains("1,    1, 4,4  ","4,4"))
          //print("\nError:difference of x - y = " + ST_Within("-88.3333, 23.3333","saklfjas,adsflkadjfa", 111.87))
 
       }
