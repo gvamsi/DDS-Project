@@ -50,12 +50,7 @@ object SpatialQuery extends App{
         catch {
             case _: Throwable => return false
         }
-	
-	
-	
-	
-	
-	
+		
 	))
 
     val resultDf = spark.sql("select * from point where ST_Contains('"+arg2+"',point._c0)")
@@ -114,10 +109,6 @@ object SpatialQuery extends App{
         catch {
             case _: Throwable => return false
         }
-	
-	
-	
-	
 	
 	))
 
@@ -202,9 +193,7 @@ object SpatialQuery extends App{
         }
         catch {
             case _: Throwable => return false
-        }
-		
-	
+        }	
 	))
     val resultDf = spark.sql("select * from point1 p1, point2 p2 where ST_Within(p1._c0, p2._c0, "+arg3+")")
     resultDf.show()
