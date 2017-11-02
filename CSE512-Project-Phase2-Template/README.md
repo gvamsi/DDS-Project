@@ -1,4 +1,9 @@
-# CSE512-Project-Phase2-Code-Template
+# CSE512-Project-Phase2-ASU DataDevils
+# Team Members:
+# Kruthika Surineni
+# Nishi Shah
+# Richard Tuznik
+# Vamsi Krishna Godavarthi
 
 #### Version history
 v3.1, Oct 28: fixed a typo in main function which should call "RangeJoinQuery" but actually called "RangeQuery"
