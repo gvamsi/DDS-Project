@@ -47,5 +47,53 @@ object HotcellUtils {
     return calendar.get(Calendar.DAY_OF_MONTH)
   }
 
+  def squared(a:Int):Double=
+  {
+    return (a*a).toDouble;
+  }
+  
+  def CountNeighbours(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int, inputX: Int, inputY: Int, inputZ: Int): Int = 
+  {
+    var cellcount = 0;
+    val cond1 = 7
+    val cond2 =11
+    val cond3 =17
+    val cond4 =26
+      
+    if (inputX == minX || inputX == maxX) {
+      cellcount += 1;
+    }
+
+    if (inputY == minY || inputY == maxY) {
+      cellcount += 1;
+    }
+
+    if (inputZ == minZ || inputZ == maxZ) {
+      cellcount += 1;
+    }
+
+    if (cellcount == 1) {
+      return cond3;
+    } 
+    else if (cellcount == 2)
+    {
+      return cond2;
+    }
+    else if (cellcount == 3)
+    {
+      return cond1;
+    } 
+    else
+    {
+      return cond4;
+    }
+  }
+
+  def gettisordstatistic(x: Int, y: Int, z: Int, mean:Double, sd: Double, countn: Int, sumn: Int, numcells: Int): Double =
+  {
+    val numerator = (sumn.toDouble - (mean*countn.toDouble))
+    val denominator = sd*math.sqrt((((numcells.toDouble*countn.toDouble) -(countn.toDouble*countn.toDouble))/(numcells.toDouble-1.0).toDouble).toDouble).toDouble
+    return (numerator/denominator).toDouble
+  }
   // YOU NEED TO CHANGE THIS PART
 }

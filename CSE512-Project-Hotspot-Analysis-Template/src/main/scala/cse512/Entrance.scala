@@ -12,12 +12,12 @@ object Entrance extends App {
   override def main(args: Array[String]) {
     val spark = SparkSession
       .builder()
-      .appName("CSE512-HotspotAnalysis-ASU DataDevils") // YOU NEED TO CHANGE YOUR GROUP NAME
-      .config("spark.some.config.option", "some-value")//
-      .master("local[*]")
+      .appName("CSE512-HotspotAnalysis-ASU_DataDevils") // YOU NEED TO CHANGE YOUR GROUP NAME
+      .config("spark.some.config.option", "some-value")//.master("local[*]")
       .getOrCreate()
 
     paramsParser(spark, args)
+    //spark.stop()
 
   }
   

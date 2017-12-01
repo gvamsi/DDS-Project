@@ -45,5 +45,6 @@ object HotzoneUtils {
         catch {
             case _: Throwable => return false
         }
+    }
   // YOU NEED TO CHANGE THIS PART
 }
