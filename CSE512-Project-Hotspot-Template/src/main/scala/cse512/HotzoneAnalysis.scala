@@ -1,11 +1,7 @@
 package cse512
 
 import org.apache.log4j.{Level, Logger}
-// import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
-import org.apache.spark.sql.{DataFrame, SparkSession}
-//added these two
-import org.apache.spark.sql.functions.udf
-import org.apache.spark.sql.functions._
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
 object HotzoneAnalysis {
 
@@ -34,9 +30,8 @@ object HotzoneAnalysis {
     joinDf.createOrReplaceTempView("joinResult")
 
     // YOU NEED TO CHANGE THIS PART
-    val resultDf = spark.sql("select rectangle, count(*) as count from joinResult group by rectangle order by rectangle")
-    resultDf.createOrReplaceTempView("finalJoinResult")
-    return resultDf.repartition(1) // YOU NEED TO CHANGE THIS PART
+    val resultDf = joinDf.groupBy("rectangle").count().sort("rectangle")
+    return resultDf // YOU NEED TO CHANGE THIS PART
   }
 
 }
