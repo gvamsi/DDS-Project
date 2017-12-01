@@ -6,7 +6,7 @@ object HotzoneUtils {
     // YOU NEED TO CHANGE THIS PART
     //return true // YOU NEED TO CHANGE THIS PART
 
-    try {
+    //try {
           var rect = new Array[String](4)
           rect = queryRectangle.split(",")
           var rect_x1 = rect(0).trim.toDouble
@@ -41,10 +41,10 @@ object HotzoneUtils {
             return false
           else
             return true
-        }
-        catch {
-            case _: Throwable => return false
-        }
+       // }
+       // catch {
+       //     case _: Throwable => return false
+       // }
     }
   // YOU NEED TO CHANGE THIS PART
 }
