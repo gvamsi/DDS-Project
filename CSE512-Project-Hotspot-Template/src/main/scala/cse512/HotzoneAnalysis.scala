@@ -31,7 +31,8 @@ object HotzoneAnalysis {
 
     // YOU NEED TO CHANGE THIS PART
     val resultDf = joinDf.groupBy("rectangle").count().sort("rectangle")
-    return resultDf.repartition(1) // YOU NEED TO CHANGE THIS PART
+    return resultDf
+    //return resultDf.repartition(1) // YOU NEED TO CHANGE THIS PART
   }
 
 }
