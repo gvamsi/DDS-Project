@@ -4,7 +4,6 @@ import org.apache.log4j.{ Level, Logger }
 import org.apache.spark.sql.{ DataFrame, SparkSession }
 import org.apache.spark.sql.functions.udf
 import org.apache.spark.sql.functions._
-import java.util.Calendar 
 
 object HotcellAnalysis {
   Logger.getLogger("org.spark_project").setLevel(Level.WARN)

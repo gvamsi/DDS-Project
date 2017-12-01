@@ -37,7 +37,7 @@ object HotzoneUtils {
           var lower_y = math.min(rect_y1, rect_y2)
           var higher_y = math.max(rect_y1, rect_y2)
           
-          if(point_y > higher_y || point_x < lower_x || point_x>higher_x || point_y < lower_y)
+          if(point_y > higher_y || point_x < lower_x || point_x > higher_x || point_y < lower_y)
             return false
           else
             return true
