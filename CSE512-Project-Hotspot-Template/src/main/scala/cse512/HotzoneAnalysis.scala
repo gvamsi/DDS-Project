@@ -2,6 +2,7 @@ package cse512
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+import org.apache.spark.sql.functions._
 
 object HotzoneAnalysis {
 
@@ -30,7 +31,8 @@ object HotzoneAnalysis {
     joinDf.createOrReplaceTempView("joinResult")
 
     // YOU NEED TO CHANGE THIS PART
-    val resultDf = joinDf.groupBy("rectangle").count().sort("rectangle")
+    val resultDf = joinDf.groupBy("rectangle").count().orderBy("rectangle").coalesce(1)
+    resultDf.show()
     return resultDf
     //return resultDf.repartition(1) // YOU NEED TO CHANGE THIS PART
   }

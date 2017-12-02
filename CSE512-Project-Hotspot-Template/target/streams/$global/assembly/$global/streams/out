@@ -4,7 +4,7 @@
 [0m[[0m[0minfo[0m] [0m[0mMerging files...[0m
 [0m[[0m[33mwarn[0m] [0m[0mMerging 'META-INF/MANIFEST.MF' with strategy 'discard'[0m
 [0m[[0m[33mwarn[0m] [0m[0mStrategy 'discard' was applied to a file[0m
-[0m[[0m[0minfo[0m] [0m[0mSHA-1: 657b472dcf873895e0a52294087ae9cbb5a1967e[0m
+[0m[[0m[0minfo[0m] [0m[0mSHA-1: de6de81fe06bb7d43d8ff92096df3e59d83a86b4[0m
 [0m[[0m[0minfo[0m] [0m[0mPackaging /home/ubuntu/Desktop/DDS-Project/CSE512-Project-Hotspot-Template/target/scala-2.11/CSE512-Hotspot-Analysis-Template-assembly-0.1.0.jar ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	cse512/Entrance$.class[0m
