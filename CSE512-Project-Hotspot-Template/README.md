@@ -1,4 +1,11 @@
 # CSE512-Project-Hotspot-Analysis-Template
+
+# Team Members:
+# Kruthika Surineni
+# Nishi Shah
+# Richard Tuznik
+# Vamsi Krishna Godavarthi
+
 #### Version history
 v1.1, Nov 16, Fix a bug in "Entrace.scala"
 v1.0, Nov 13, Initial version
